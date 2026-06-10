@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b44c720ea282a8e8d0d69987f627f0, type: 3}
+  m_Name: BR-365K
+  m_EditorClassIdentifier: Assembly-CSharp::Shell
+  model: {fileID: 1630185893580146705, guid: 774df886ad414bcf9ab2c14feb8a80f1, type: 3}
+  type: 1
+  refPenetration: 9.2
+  caliber: 85
+  mass: 792
+  muzzleVelocity: 792
+  fuzeDelay: 1.2
+  fuzeSensitivity: 14
+  explosiveType: A-IX-2
+  explosiveMass: 50
+  tntEquivalent: 77
