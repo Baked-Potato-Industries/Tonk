@@ -16,9 +16,9 @@ MonoBehaviour:
   type: 1
   refPenetration: 9.2
   caliber: 85
-  mass: 792
+  mass: 9.2
   muzzleVelocity: 792
-  fuzeDelay: 1.2
+  fuzeDelay: {x: 5, y: 15}
   fuzeSensitivity: 14
   explosiveType: A-IX-2
   explosiveMass: 50
