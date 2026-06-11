@@ -1039,7 +1039,7 @@
                 {
                     "name": "Positive",
                     "id": "b285d439-c91e-4e73-9bc6-fa315844516c",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1050,44 +1050,11 @@
                 {
                     "name": "Negative",
                     "id": "0a1e6a4d-f090-4108-9ade-1d418bed68eb",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Elevate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "4b477ee4-63dc-412f-b7d2-e8e13003763a",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Traverse",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Positive",
-                    "id": "96f8469c-e416-4e8f-9aef-cc5c7cdfb303",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Traverse",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Negative",
-                    "id": "86267bc0-714c-4564-93b3-3d88a92a796b",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Traverse",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -1101,6 +1068,39 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "2ab2cfc6-c97b-46a2-af06-86d0a1817f20",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Traverse",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "6b8848b2-0d37-40d1-9266-5d1215cc237e",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Traverse",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d858dea3-f07c-467c-8f48-5b7cd7e25b06",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Traverse",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
