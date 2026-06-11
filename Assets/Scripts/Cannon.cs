@@ -27,9 +27,6 @@ public class Cannon : MonoBehaviour
     {
         var sh = Instantiate(shell.Model,transform.position, quaternion.identity);
         
-        if (!sh.TryGetComponent(out Rigidbody rb)) 
-            rb = sh.AddComponent<Rigidbody>();
-
-        rb.AddForce(Vector3.forward * 100, ForceMode.Impulse);
+        (sh.TryGetComponent(out Rigidbody rb) ? rb : sh.AddComponent<Rigidbody>()).AddForce(Vector3.forward * 100, ForceMode.Impulse);
     }
 }
