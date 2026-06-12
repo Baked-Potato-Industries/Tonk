@@ -27,8 +27,8 @@ public class Shell : ScriptableObject
     [Tooltip("Speed of the shell in m/s")]
     [SerializeField] private float muzzleVelocity;
 
-    [Tooltip("Fuze delay in m")]
-    [SerializeField] private float fuzeDelay;
+    [Tooltip("Fuze delay in ms (x: min) (y: max)")]
+    [SerializeField] private Vector2 fuzeDelay;
 
     [Tooltip("Fuze sensitivity in mm")]
     [SerializeField] private float fuzeSensitivity;
@@ -47,7 +47,7 @@ public class Shell : ScriptableObject
     public float Caliber => caliber;
     public float Mass => mass;
     public float MuzzleVelocity => muzzleVelocity;
-    public float FuzeDelay => fuzeDelay;
+    public Vector2 FuzeDelay => fuzeDelay;
     public float FuzeSensitivity => fuzeSensitivity;
     public string ExplosiveType => explosiveType;
     public float ExplosiveMass => explosiveMass;

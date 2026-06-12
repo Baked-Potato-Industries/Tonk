@@ -998,21 +998,21 @@
             "actions": [
                 {
                     "name": "Elevate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "74d7e260-96c0-4bfd-a0ae-59c18610b9ef",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Traverse",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "f0850484-8da8-4ac7-bf9e-1c5d283fb77e",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Shoot",

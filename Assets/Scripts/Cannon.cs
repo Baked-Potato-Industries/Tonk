@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,22 +13,17 @@ public class Cannon : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gunner.FindAction("Shoot").WasPressedThisFrame())
         {
-            Debug.Log("ah!"); 
+            Debug.Log("shoot"); 
             Shoot();
         } 
     }
 
     private void Shoot()
     {
-        var sh = Instantiate(shell.Model,transform.position, quaternion.identity);
-        
-        if (!sh.TryGetComponent(out Rigidbody rb)) 
-            rb = sh.AddComponent<Rigidbody>();
-
-        rb.AddForce(Vector3.forward * 100, ForceMode.Impulse);
+        ShellSpawner.FireShell(transform, shell);
     }
 }
