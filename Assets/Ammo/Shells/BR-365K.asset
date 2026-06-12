@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b44c720ea282a8e8d0d69987f627f0, type: 3}
   m_Name: BR-365K
   m_EditorClassIdentifier: Assembly-CSharp::Shell
-  model: {fileID: 1630185893580146705, guid: 774df886ad414bcf9ab2c14feb8a80f1, type: 3}
+  model: {fileID: 7391974381781906556, guid: 41ca4c384d4e7fa6aa6245f9f388c850, type: 3}
   type: 1
   refPenetration: 9.2
   caliber: 85
