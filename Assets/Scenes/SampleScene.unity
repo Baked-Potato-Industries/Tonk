@@ -160,12 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Turret
   turret: {fileID: 7472475031215945222}
   cannon: {fileID: 4453470713883498143}
-  elevateTorquePower: 500
-  maxAscendAngle: 30
-  maxDescendAngle: -3
-  traverseTorquePower: 3000
-  elevateTorque: 0
-  traverseTorque: 0
+  elevationAcceleration: 10
+  traversalAcceleration: 10
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +539,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &817034247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 817034248}
+  m_Layer: 0
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &817034248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817034247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.03523, y: -0.000032, z: -0.000459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1323193827880659721}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +658,6 @@ GameObject:
   - component: {fileID: 1823390278}
   - component: {fileID: 1823390277}
   - component: {fileID: 1823390276}
-  - component: {fileID: 1823390280}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -656,7 +682,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -732,19 +758,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1823390280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823390275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdeed0abf69c047389a527ed229f8ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cannon
-  shell: {fileID: 11400000, guid: 447f84cd9ec5bc02683a2cfada9d8d76, type: 2}
 --- !u!33 &5164775305589031
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1060,7 +1073,8 @@ Transform:
   m_LocalPosition: {x: 0.00202, y: 0, z: 0.012399999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1323193827880659721}
   m_Father: {fileID: 6669889699738136679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919132149228127050
@@ -1072,6 +1086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653499988464}
+  - component: {fileID: 919132149228127051}
   m_Layer: 0
   m_Name: IS-1.v3
   m_TagString: Untagged
@@ -1079,6 +1094,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149228127051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149228127050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbe5b8830dc5d3e2bcfd19d3639a88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tank
+  tankData: {fileID: 11400000, guid: 8068d0b2690383f40830225bb3333ada, type: 2}
 --- !u!4 &1005558073565342821
 Transform:
   m_ObjectHideFlags: 0
@@ -1208,11 +1236,12 @@ Transform:
   m_GameObject: {fileID: 4453470713883498143}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.008099999, y: 0, z: 0.016199997}
+  m_LocalPosition: {x: -0.010119999, y: 0, z: 0.0037999935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6669889699738136679}
+  m_Children:
+  - {fileID: 817034248}
+  m_Father: {fileID: 825122668817882420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367458288734057605
 GameObject:
@@ -1954,6 +1983,7 @@ GameObject:
   - component: {fileID: 3946306572311229109}
   - component: {fileID: 1537689607}
   - component: {fileID: 8181087648641576459}
+  - component: {fileID: 8181087648641576460}
   m_Layer: 0
   m_Name: cannon
   m_TagString: Untagged
@@ -2392,7 +2422,6 @@ Transform:
   - {fileID: 5474882629116492083}
   - {fileID: 5566012949940945832}
   - {fileID: 825122668817882420}
-  - {fileID: 1323193827880659721}
   m_Father: {fileID: 543450653499988464}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6720619411982997156
@@ -2674,12 +2703,12 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: 0
-    max: 0
+    min: -3
+    max: 30
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -2689,6 +2718,22 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8181087648641576460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453470713883498143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdeed0abf69c047389a527ed229f8ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cannon
+  shells:
+  - {fileID: 11400000, guid: 447f84cd9ec5bc02683a2cfada9d8d76, type: 2}
+  firePoint: {fileID: 817034248}
+  loadedShell: {fileID: 0}
 --- !u!23 &8215687650207215789
 MeshRenderer:
   m_ObjectHideFlags: 0
