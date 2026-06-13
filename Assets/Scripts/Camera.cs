@@ -26,7 +26,7 @@ public class Camera : MonoBehaviour
     void Start()
     {
         cameraActionMap = InputSystem.actions.FindActionMap("Camera");
-        cannon = tank.transform.Find("turret").Find("cannon").gameObject;
+        cannon = tank.transform.Find("body").Find("turret").Find("cannon").gameObject;
     }
 
     // Update is called once per frame
@@ -34,7 +34,6 @@ public class Camera : MonoBehaviour
     {
         DetectCamSwitch(cameraActionMap.FindAction("Switch"));
         MoveCamera();
-        
     }
 
     void DetectCamSwitch(InputAction camSwitchAction)
@@ -50,11 +49,16 @@ public class Camera : MonoBehaviour
         switch (camMode)
         {
             case CamMode.Shoot:
-                targetCamPos = cannon.transform.position;
+                targetCamPos = cannon.transform.position - (cannon.transform.right * 4.0f);
+                Debug.Log("straight up shooting it");
                 break;
             case CamMode.Hover:
+                targetCamPos = new Vector3(0.0f, 5.24f, -10.0f);
+                Debug.Log("straight uphovering it");
                 break;
         }
+
+        transform.position = targetCamPos;
     }
 
 }
