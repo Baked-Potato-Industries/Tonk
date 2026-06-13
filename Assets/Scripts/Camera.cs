@@ -20,8 +20,8 @@ public class Camera : MonoBehaviour
 
     [SerializeField] private CamMode camMode = CamMode.Shoot;
 
-    [SerializeField] private float shootCamOffset = 3.0f;
-    [SerializeField] private Vector2 hoverCamOffset = new Vector2(3.0f, -5.0f);
+    [SerializeField] private float shootCamOffset = 0.035f;
+    [SerializeField] private Vector2 hoverCamOffset = new Vector2(0.03f, -0.08f);
 
     // serialized for debug purposes
     //[SerializeField] private Vector3 targetCamPos = Vector3.zero;
@@ -61,14 +61,15 @@ public class Camera : MonoBehaviour
         {
             case CamMode.Shoot:
                 transform.SetParent(cannon.transform, false);
-                transform.position = new Vector3(0.0f, 0.0f, shootCamOffset);
-                transform.rotation = Quaternion.Euler(cannon.transform.forward);
+                transform.localPosition = new Vector3(0.0f, 0.0f, shootCamOffset);
+                transform.localRotation = Quaternion.identity;
 
                 break;
 
             case CamMode.Hover:
                 transform.SetParent(body.transform, false);
-                transform.position = new Vector3(0.0f, hoverCamOffset.x, hoverCamOffset.y);
+                transform.localPosition = new Vector3(0.0f, hoverCamOffset.x, hoverCamOffset.y);
+                transform.localRotation = Quaternion.Euler(15.0f, 0.0f, 0.0f);
                 break;
         }
     }
