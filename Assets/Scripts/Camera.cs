@@ -13,27 +13,37 @@ public class Camera : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private GameObject tank;
+    private GameObject body;
     private GameObject cannon;
 
     private InputActionMap cameraActionMap;
 
     [SerializeField] private CamMode camMode = CamMode.Shoot;
 
+    [SerializeField] private float shootCamOffset = 3.0f;
+    [SerializeField] private Vector2 hoverCamOffset = new Vector2(3.0f, -5.0f);
+
     // serialized for debug purposes
-    [SerializeField] private Vector3 targetCamPos = Vector3.zero;
-    [SerializeField] private Quaternion targetCamRotation = Quaternion.identity;
+    //[SerializeField] private Vector3 targetCamPos = Vector3.zero;
+    //[SerializeField] private Quaternion targetCamRotation = Quaternion.identity;
+
 
     void Start()
     {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+
         cameraActionMap = InputSystem.actions.FindActionMap("Camera");
-        cannon = tank.transform.Find("body").Find("turret").Find("cannon").gameObject;
+        body = tank.transform.Find("body").gameObject;
+        cannon = body.transform.Find("turret").Find("cannon").gameObject;
+
+        HandleCamSwitch();
     }
 
     // Update is called once per frame
     void Update()
     {
         DetectCamSwitch(cameraActionMap.FindAction("Switch"));
-        MoveCamera();
     }
 
     void DetectCamSwitch(InputAction camSwitchAction)
@@ -41,24 +51,26 @@ public class Camera : MonoBehaviour
         if(camSwitchAction.WasPressedThisFrame())
         {
             camMode = (CamMode)(((int)camMode + 1) % Enum.GetValues(typeof(CamMode)).Length);
+            HandleCamSwitch();
         }
     }
 
-    void MoveCamera()
+    void HandleCamSwitch()
     {
         switch (camMode)
         {
             case CamMode.Shoot:
-                targetCamPos = cannon.transform.position - (cannon.transform.right * 4.0f);
-                Debug.Log("straight up shooting it");
+                transform.SetParent(cannon.transform, false);
+                transform.position = new Vector3(0.0f, 0.0f, shootCamOffset);
+                transform.rotation = Quaternion.Euler(cannon.transform.forward);
+
                 break;
+
             case CamMode.Hover:
-                targetCamPos = new Vector3(0.0f, 5.24f, -10.0f);
-                Debug.Log("straight uphovering it");
+                transform.SetParent(body.transform, false);
+                transform.position = new Vector3(0.0f, hoverCamOffset.x, hoverCamOffset.y);
                 break;
         }
-
-        transform.position = targetCamPos;
     }
 
 }
