@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private float elevationAcceleration;
     [SerializeField] private float traversalAcceleration;
 
-    private void Awake()
+    private void Start()
     {
         tankData = transform.root.GetComponent<Tank>().tankData;
 
@@ -39,7 +39,7 @@ public class Turret : MonoBehaviour
         float elevateTorque = inputAxis * elevationAcceleration;
 
         if (rb.angularVelocity.magnitude < tankData.TurretElevationSpeed * Mathf.Deg2Rad)
-            rb.AddTorque(turret.transform.up * elevateTorque, ForceMode.Force);
+            rb.AddTorque(turret.transform.right * elevateTorque, ForceMode.Force);
     }
 
     private void Traverse(float inputAxis)
@@ -49,7 +49,7 @@ public class Turret : MonoBehaviour
         float traverseTorque = inputAxis * traversalAcceleration;
 
         if (rb.angularVelocity.magnitude < tankData.TurretElevationSpeed * Mathf.Deg2Rad)
-            rb.AddTorque(Vector3.up * traverseTorque, ForceMode.Force);
+            rb.AddTorque(turret.transform.up * traverseTorque, ForceMode.Force);
     }
 
     private void InitElevationLimit()
