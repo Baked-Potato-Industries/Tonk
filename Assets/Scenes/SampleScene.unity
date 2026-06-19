@@ -272,7 +272,7 @@ MonoBehaviour:
   tank: {fileID: 4548617602342020670}
   camMode: 0
   shootCamOffset: 4
-  hoverCamOffset: {x: 3, y: -5}
+  hoverCamOffset: {x: 0.06, y: -0.1}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2597,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &6969379009098799775
 MonoBehaviour:
@@ -2705,14 +2705,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4595373206473891837}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0.003800001, z: 0.010120001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 817034248}
   m_Father: {fileID: 4084178822022182976}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &7197197648209314754
 Transform:
   m_ObjectHideFlags: 0
@@ -2892,7 +2892,7 @@ HingeJoint:
   serializedVersion: 3
   m_ConnectedBody: {fileID: 6969379009098799774}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0.0040000016, z: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
@@ -2961,7 +2961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cannon
   shells:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 447f84cd9ec5bc02683a2cfada9d8d76, type: 2}
   firePoint: {fileID: 817034248}
   loadedShell: {fileID: 0}
 --- !u!33 &8127138919208843194
