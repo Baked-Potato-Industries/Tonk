@@ -36,7 +36,7 @@ public class Turret : MonoBehaviour
     private void Elevate(float inputAxis)
     {
         Rigidbody rb = cannon.GetComponent<Rigidbody>();
-        float elevateTorque = inputAxis * elevationAcceleration;
+        float elevateTorque = -1 * inputAxis * elevationAcceleration;
 
         if (rb.angularVelocity.magnitude < tankData.TurretElevationSpeed * Mathf.Deg2Rad)
             rb.AddTorque(turret.transform.right * elevateTorque, ForceMode.Force);
@@ -57,8 +57,8 @@ public class Turret : MonoBehaviour
         HingeJoint hinge = cannon.GetComponent<HingeJoint>();
         JointLimits limits = hinge.limits;
         
-        limits.min = tankData.TurretElevationLimit.x;
-        limits.max = tankData.TurretElevationLimit.y;
+        limits.min = -1 * tankData.TurretElevationLimit.y;
+        limits.max = -1 * tankData.TurretElevationLimit.x;
         
         hinge.limits = limits;
     }
