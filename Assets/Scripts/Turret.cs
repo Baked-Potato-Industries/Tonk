@@ -57,9 +57,12 @@ public class Turret : MonoBehaviour
         HingeJoint hinge = cannon.GetComponent<HingeJoint>();
         JointLimits limits = hinge.limits;
         
-        limits.min = -1 * tankData.TurretElevationLimit.y;
-        limits.max = -1 * tankData.TurretElevationLimit.x;
+        limits.min = tankData.TurretElevationLimit.y;
+        limits.max = tankData.TurretElevationLimit.x;
         
         hinge.limits = limits;
+        hinge.useLimits = true;
+
+        if (hinge.useLimits == false) Debug.LogWarning($"{tankData.name}'s turret elevation limit was not active, setting it to use limits");
     }
 }
